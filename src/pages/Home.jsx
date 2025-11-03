@@ -29,7 +29,7 @@ function Home() {
           }}
         >
           <div className='text-white fw-bold'>
-            Important Security Reminder: Beware of Fraud Emails
+            Expert repairs for smartphones, tablets, laptops & mor
           </div>
           <div className="d-flex gap-3">
             <Link to={'/loginpage'}>
