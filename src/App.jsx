@@ -17,12 +17,15 @@ import AdminDashboard from "./pages/AdminDashboard"
 import AdminLogin from "./pages/Adminlogin"
 import ExploreNow from "./pages/ExploreNow"
 import StaffAttendance from "./pages/StaffAttendance"
+import LaptopRepair from "./pages/LaptopRepair"
+import { LocationProvider } from "./context/LocationContext"
 
 function App() {
   
 
   return (
     <>
+    <LocationProvider>
     <div>
       <Header/>
       <Routes>
@@ -41,6 +44,7 @@ function App() {
         <Route path="/admindashboard" element={<AdminDashboard/>}/>
         <Route path="/explorenow" element={<ExploreNow/>}/>
         <Route path="/staffattendance" element={<StaffAttendance/>}/>
+        <Route path="/laptop-repair" element={<LaptopRepair/>}/>
 
         
       </Routes>
@@ -48,6 +52,7 @@ function App() {
       <Footer/>
       
     </div>
+    </LocationProvider>
     </>
   )
 }

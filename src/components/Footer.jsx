@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
 import { Col, Container, Row, Button, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useLocation } from '../context/LocationContext';
 
 function Footer() {
   const [showModal, setShowModal] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState('');
-
-  const serviceCenters = {
-    Ernakulam: 'MG Road, Near Metro Station',
-    Trivandrum: 'Technopark Campus',
-    Kollam: 'Downtown Complex, Beach Road',
-    Calicut: 'Palayam Junction, Opp. KSRTC Bus Stand',
-    Trissur: 'Swaraj Round East, 2nd Floor, City Center',
-    Kottayam: 'Kanjikuzhy Main Road, Near Private Bus Stand',
-    Idukki: 'Painavu Town, Near Govt. Hospital',
-  };
+  const { selectedLocation, serviceCenters, selectDistrict } = useLocation();
 
   const handleSelect = (district) => {
-    setSelectedLocation(`ChipFix service center available in ${district}: ${serviceCenters[district]}`);
+    selectDistrict(district);
     setShowModal(false);
   };
 
@@ -47,9 +38,9 @@ function Footer() {
 
             {/* State & Socials */}
             <Col md={4} className="mb-4">
-              <h5 className="text-uppercase">Choose State</h5>
+              <h5 className="text-uppercase">Choose District</h5>
               <Button variant="outline-primary" onClick={() => setShowModal(true)} className="mb-3">
-                Select District <i className="fa-solid fa-angle-up"></i>
+                Select <i className="fa-solid fa-angle-up"></i>
               </Button>
 
               {/* Show Selected Location */}
