@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button, Modal } from 'react-bootstrap';
 import { useLocation } from '../context/LocationContext';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './LaptopRepair.css';
 import appleLogo from '../assets/images/apple.jpg'
 import samsungLogo from '../assets/images/samsunglogo.jpg'
+import hpLogo from '../assets/images/hplogo.jpg'
+import asusLogo from '../assets/images/asuslogo.jpg'
+import dellLogo from '../assets/images/dellLogo.jpg'
+import huaweiLogo from '../assets/images/huawailogo.jpg'
+import acerlogo from '../assets/images/acerlogo.jpg'
+import lenovologo from '../assets/images/lenovologo.jpg'
+import lglogo from '../assets/images/lglogo.jpg'
+import XiaomiLogo from '../assets/images/xiaomiLogo.jpg'
+
+
 
 function LaptopRepair() {
     const [formData, setFormData] = useState({
@@ -13,6 +25,7 @@ function LaptopRepair() {
         serviceType: '',
         customerAddress: '',
         serviceDeviceId: '',
+        deviceBrandId: '',
         deviceModelId: '',
         serviceId: '',
         message: '',
@@ -22,18 +35,23 @@ function LaptopRepair() {
     const [showModal, setShowModal] = useState(false);
     const { selectedLocation, serviceCenters, selectDistrict } = useLocation();
 
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
     const brands = [
         { name: 'Apple', url: '/in/idukki/laptop/apple', img: appleLogo },
         { name: 'Samsung', url: '/in/idukki/laptop/samsung', img: samsungLogo },
-        { name: 'HP', url: '/in/idukki/laptop/hp', img: 'https://easycare.services/uploads/models/wAIh7MkFIzO562HtOZJ89_bUlfg1fgyZ.svg' },
-        { name: 'Dell', url: '/in/idukki/laptop/dell', img: 'https://easycare.services/uploads/models/iQohJRNb4uebSh-f9Nc7p36tgfiU8hrJ.svg' },
-        { name: 'Asus', url: '/in/idukki/laptop/asus', img: 'https://easycare.services/uploads/models/5RHh5jHhCRI7jUdCHLF-Ft7NE8MIPRAu.svg' },
-        { name: 'Huawei', url: '/in/idukki/laptop/huawei', img: 'https://easycare.services/uploads/models/KUwSVzeKOVjD3UgYRcO_PEZ_pSAuUPnU.svg' },
-        { name: 'Xiaomi', url: '/in/idukki/laptop/xiamoi', img: 'https://easycare.services/uploads/models/YoY1pcr6zLr1Y6XPdGPUkJ8eTwG7CZ2F.svg' },
-        { name: 'Lenovo', url: '/in/idukki/laptop/lenovo', img: 'https://easycare.services/uploads/models/QwYDj74ZXs7ikKV1xu1ySXv-UaE1Tro-.svg' },
-        { name: 'LG', url: '/in/idukki/laptop/lg', img: 'https://easycare.services/uploads/models/-rzIfZlE86jU7Zrt7MMnXqJCpO7wWyKP.svg' },
-        { name: 'Acer', url: '/in/idukki/laptop/acer', img: 'https://easycare.services/uploads/models/396LPccVydBpOdnl1OsKLgYmSwTT-a6P.svg' },
-        { name: 'Other Brand', url: '/in/idukki/laptop/other-brand', img: 'https://easycare.services/uploads/models/UWJ5lenROdmAqBQewNrAlVKwGGUxdmq1.svg' }
+        { name: 'HP', url: '/in/idukki/laptop/hp', img: hpLogo },
+        { name: 'Dell', url: '/in/idukki/laptop/dell', img: dellLogo },
+        { name: 'Asus', url: '/in/idukki/laptop/asus', img: asusLogo },
+        { name: 'Huawei', url: '/in/idukki/laptop/huawei', img: huaweiLogo },
+        { name: 'Xiaomi', url: '/in/idukki/laptop/xiamoi', img: XiaomiLogo },
+        { name: 'Lenovo', url: '/in/idukki/laptop/lenovo', img: lenovologo },
+        { name: 'LG', url: '/in/idukki/laptop/lg', img: lglogo },
+        { name: 'Acer', url: '/in/idukki/laptop/acer', img: acerlogo },
+        // { name: 'Other Brand', url: '/in/idukki/laptop/other-brand', img: 'https://easycare.services/uploads/models/UWJ5lenROdmAqBQewNrAlVKwGGUxdmq1.svg' }
     ];
 
     const stores = [
@@ -47,9 +65,9 @@ function LaptopRepair() {
         {
             name: 'ChipFix',
             address: '1/ XV/1624, 1, CHAINHALL BUILDING, ADIMALI, IDUKKI, KERALA, Pincode: 685561',
-            phone: '0091 9207774426',
+            phone: '0091 8589856868',
             email: 'Info@easycare.services',
-            url: '/in/idukki/store/easycare-adimali'
+            url: '/in/idukki/store/adimali'
         }
     ];
 
@@ -64,8 +82,29 @@ function LaptopRepair() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form submitted:', formData);
-        alert('Thank you for your request! We will contact you soon.');
-        // Add your form submission logic here
+        toast.success('Thank you for your request! We will contact you soon.', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true
+        });
+        
+        // Reset form after submission
+        setFormData({
+            name: '',
+            phoneNumber: '',
+            email: '',
+            serviceType: '',
+            customerAddress: '',
+            serviceDeviceId: '',
+            deviceBrandId: '',
+            deviceModelId: '',
+            serviceId: '',
+            message: '',
+            storeId: '74'
+        });
     };
 
     const handleSelect = (district) => {
@@ -74,10 +113,12 @@ function LaptopRepair() {
     };
 
     return (
-        <div className="repair-device-cnt py-5">
-            <Container>
-                <Row>
-                    <Col md={8}>
+        <>
+            <ToastContainer />
+            <div className="repair-device-cnt py-5">
+                <Container>
+                    <Row>
+                        <Col md={8}>
                         {/* Title Section */}
                         <div className="fst1 mb-4">
                             <h1 className="wizard__title mt-3 mb-2">Laptop</h1>
@@ -106,7 +147,7 @@ function LaptopRepair() {
                                     {brands.map((brand, index) => (
                                         <Col xs={6} sm={4} md={3} key={index}>
                                             <a href={brand.url} className="item repair-device-but next1 d-block text-center p-3 border rounded hover-shadow">
-                                                <img src={brand.img} alt={brand.name} className="img-fluid" style={{ maxHeight: '60px',borderRadius:'11px' }} />
+                                                <img src={brand.img} alt={brand.name} className="img-fluid" style={{ maxHeight: '60px', borderRadius: '11px' }} />
                                             </a>
                                         </Col>
                                     ))}
@@ -149,7 +190,7 @@ function LaptopRepair() {
                                 <li>Lenovo</li>
                                 <li>LG</li>
                                 <li>Acer</li>
-                                <li>Other Brands</li>
+                                {/* <li>Other Brands</li> */}
                             </ul>
 
                             <h2 className="mt-5 mb-3">Laptop repair is a promise</h2>
@@ -215,11 +256,11 @@ function LaptopRepair() {
                     {/* Contact Form */}
                     <Col md={4}>
                         <div className="contact-form sticky-top" style={{ top: '20px' }}>
-                            <Form onSubmit={handleSubmit} className="p-4 border rounded bg-light shadow">
-                                <h5 className="mb-4 text-center">Repair Now</h5>
+                            <Form onSubmit={handleSubmit} className="p-3 border rounded bg-light shadow">
+                                <h5 className="mb-3 text-center">Repair Now</h5>
 
                                 <Row>
-                                    <Col md={12} className="mb-3">
+                                    <Col md={12} className="mb-2">
                                         <Form.Control
                                             type="text"
                                             name="name"
@@ -227,10 +268,11 @@ function LaptopRepair() {
                                             value={formData.name}
                                             onChange={handleInputChange}
                                             required
+                                            size="sm"
                                         />
                                     </Col>
 
-                                    <Col md={12} className="mb-3">
+                                    <Col md={12} className="mb-2">
                                         <Form.Control
                                             type="tel"
                                             name="phoneNumber"
@@ -238,25 +280,28 @@ function LaptopRepair() {
                                             value={formData.phoneNumber}
                                             onChange={handleInputChange}
                                             required
+                                            size="sm"
                                         />
                                     </Col>
 
-                                    <Col md={12} className="mb-3">
+                                    <Col md={12} className="mb-2">
                                         <Form.Control
                                             type="email"
                                             name="email"
                                             placeholder="Email"
                                             value={formData.email}
                                             onChange={handleInputChange}
+                                            size="sm"
                                         />
                                     </Col>
 
-                                    <Col md={12} className="mb-3">
+                                    <Col md={12} className="mb-2">
                                         <Form.Select
                                             name="serviceType"
                                             value={formData.serviceType}
                                             onChange={handleInputChange}
                                             required
+                                            size="sm"
                                         >
                                             <option value="">Select Service Type</option>
                                             <option value="onsite">Onsite Service</option>
@@ -265,7 +310,7 @@ function LaptopRepair() {
                                     </Col>
 
                                     {formData.serviceType === 'onsite' && (
-                                        <Col md={12} className="mb-3">
+                                        <Col md={12} className="mb-2">
                                             <Form.Control
                                                 as="textarea"
                                                 name="customerAddress"
@@ -274,61 +319,172 @@ function LaptopRepair() {
                                                 value={formData.customerAddress}
                                                 onChange={handleInputChange}
                                                 required
+                                                size="sm"
                                             />
                                         </Col>
                                     )}
 
-                                    <Col md={12} className="mb-3">
+                                    <Col md={12} className="mb-2">
                                         <Form.Select
                                             name="serviceDeviceId"
                                             value={formData.serviceDeviceId}
                                             onChange={handleInputChange}
                                             required
+                                            size="sm"
                                         >
                                             <option value="">Select Device</option>
-                                            <option value="1">Smartphone</option>
-                                            <option value="2">iPhone</option>
-                                            <option value="6">Laptop</option>
-                                            <option value="5">Tablets</option>
-                                            <option value="3">Smartwatch</option>
-                                            <option value="4">Gaming Console</option>
+                                            <option value="1">Mobile</option>
+                                            <option value="2">Laptop</option>
+                                            <option value="3">Tablets</option>
+                                            <option value="4">Smartwatch</option>
+                                            
                                         </Form.Select>
                                     </Col>
 
-                                    <Col md={12} className="mb-3">
+
+                                    <Col md={12} className="mb-2">
                                         <Form.Select
+                                            name="deviceBrandId"
+                                            value={formData.deviceBrandId}
+                                            onChange={handleInputChange}
+                                            size="sm"
+                                        >
+                                            <option value="">Select Brand</option>
+
+                                            {formData.serviceDeviceId === '1' && (
+                                                <>
+                                                    <option value="apple">Apple</option>
+                                                    <option value="samsung">Samsung</option>
+                                                    <option value="hp">Realme</option>
+                                                    <option value="dell">Oppo</option>
+                                                    <option value="xiaomi">Mi</option>
+                                                    <option value="asus">Asus</option>
+
+                                                </>
+                                            )}
+                                            {formData.serviceDeviceId === '2' && (
+                                                <>
+                                                    <option value="apple">Apple</option>
+                                                    <option value="samsung">Samsung</option>
+                                                    <option value="hp">HP</option>
+                                                    <option value="dell">Dell</option>
+                                                    <option value="asus">Asus</option>
+                                                    <option value="huawei">Huawei</option>
+                                                    <option value="xiaomi">Mi</option>
+                                                    <option value="lenovo">Lenovo</option>
+                                                    <option value="acer">Acer</option>
+                                                </>
+                                            )}
+
+                                            {formData.serviceDeviceId === '3' && (
+                                                <>
+                                                    <option value="apple">Apple</option>
+                                                    <option value="samsung">Samsung</option>
+                                                    <option value="hp">Realme</option>
+                                                    <option value="dell">Oppo</option>
+                                                    <option value="xiaomi">Mi</option>
+
+                                                </>
+                                            )}
+                                            {formData.serviceDeviceId === '4' && (
+                                                <>
+                                                    <option value="apple">Apple</option>
+                                                    <option value="samsung">Samsung</option>
+                                                    <option value="hp">Realme</option>
+                                                    <option value="dell">Oppo</option>
+                                                    <option value="xiaomi">Mi</option>
+
+                                                </>
+                                            )}
+
+                                        </Form.Select>
+                                    </Col>
+                                    <Col md={12} className="mb-2">
+                                        <Form.Control
+                                            type="tel"
                                             name="deviceModelId"
+                                            placeholder="Model"
                                             value={formData.deviceModelId}
                                             onChange={handleInputChange}
-                                        >
-                                            <option value="">Select Model</option>
-                                        </Form.Select>
+                                            required
+                                            size="sm"
+                                        />
                                     </Col>
 
-                                    <Col md={12} className="mb-3">
+                                    <Col md={12} className="mb-2">
                                         <Form.Select
                                             name="serviceId"
                                             value={formData.serviceId}
                                             onChange={handleInputChange}
+                                            size="sm"
                                         >
                                             <option value="">Select Service</option>
+                                            
+                                            {formData.serviceDeviceId === '1' && (
+                                                <>
+                                                    <option value="display-change">Display Change</option>
+                                                    <option value="battery-replacement">Battery Replacement</option>
+                                                    <option value="dead">Dead</option>
+                                                    <option value="software-issue">Software Issue</option>
+                                                    <option value="water-damage">Water Damage</option>
+                                                    <option value="board-issue">Board Issue</option>
+                                                    <option value="network-problem">Network Problem</option>
+                                                </>
+                                            )}
+                                            
+                                            {formData.serviceDeviceId === '2' && (
+                                                <>
+                                                    <option value="display-change">Display Change</option>
+                                                    <option value="battery-replacement">Battery Replacement</option>
+                                                    <option value="dead">Dead</option>
+                                                    <option value="water-damage">Water Damage</option>
+                                                    <option value="board-issue">Board Issue</option>
+                                                    <option value="network-problem">Network Problem</option>
+                                                    <option value="driver-issue">Driver Issue</option>
+                                                    <option value="windows-updation">Windows Updation</option>
+                                                    <option value="hinge-complaint">Hinge Complaint</option>
+                                                </>
+                                            )}
+                                            
+                                            {formData.serviceDeviceId === '3' && (
+                                                <>
+                                                    <option value="display-change">Display Change</option>
+                                                    <option value="battery-replacement">Battery Replacement</option>
+                                                    <option value="dead">Dead</option>
+                                                    <option value="software-issue">Software Issue</option>
+                                                    <option value="water-damage">Water Damage</option>
+                                                    <option value="board-issue">Board Issue</option>
+                                                    <option value="network-problem">Network Problem</option>
+                                                </>
+                                            )}
+                                            {formData.serviceDeviceId === '4' && (
+                                                <>
+                                                    <option value="display-change">Display Change</option>
+                                                    <option value="battery-replacement">Battery Replacement</option>
+                                                    <option value="dead">Dead</option>
+                                                    <option value="water-damage">Water Damage</option>
+                                                    <option value="board-issue">Board Issue</option>
+                                                    <option value="network-problem">Network Problem</option>
+                                                </>
+                                            )}
                                         </Form.Select>
                                     </Col>
 
-                                    <Col md={12} className="mb-3">
+                                    <Col md={12} className="mb-2">
                                         <Form.Control
                                             as="textarea"
                                             name="message"
-                                            rows={3}
+                                            rows={2}
                                             placeholder="Message"
                                             value={formData.message}
                                             onChange={handleInputChange}
+                                            size="sm"
                                         />
                                     </Col>
                                 </Row>
 
                                 <div className="text-center">
-                                    <Button type="submit" variant="primary" className="w-100">
+                                    <Button type="submit" variant="primary" className="w-100" size="sm">
                                         Submit
                                     </Button>
                                 </div>
@@ -359,6 +515,7 @@ function LaptopRepair() {
                 </Modal.Body>
             </Modal>
         </div>
+        </>
     );
 }
 

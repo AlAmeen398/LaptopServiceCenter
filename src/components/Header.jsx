@@ -25,13 +25,13 @@ function Header() {
           {/* Navigation Links */}
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto gap-4">
-              <Nav.Link as={Link} to="/explore" className="text-white">Explore</Nav.Link>
+              {/* <Nav.Link as={Link} to="/explore" className="text-white">Explore</Nav.Link> */}
               <Nav.Link as={Link} to="/shop" className="text-white">Shop</Nav.Link>
               <Nav.Link as={Link} to="/support" className="text-white">Support</Nav.Link>
-              <Nav.Link as={Link} to="/laptop-services" className="text-white">Laptop Services</Nav.Link>
+              <Nav.Link as={Link} to="/laptop-repair" className="text-white">Laptop Repair</Nav.Link>
               
-              <Nav.Link as={Link} to="/contact" className="text-white">Contact Us</Nav.Link>
-              <Nav.Link as={Link} to="/diagnostics" className="text-white">Diagnostics</Nav.Link>
+              {/* <Nav.Link as={Link} to="/contact" className="text-white">Contact Us</Nav.Link> */}
+              {/* <Nav.Link as={Link} to="/diagnostics" className="text-white">Diagnostics</Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
