@@ -63,7 +63,7 @@ function Header() {
               
               {/* Cart Link with Badge */}
               <Nav.Link as={Link} to="/cart" className="text-white cart-link">
-                <i className="fa-solid fa-shopping-cart fa-lg"></i>
+                <i className="fa-solid fa-shopping-cart fa-lg" style={{color:'white'}}></i>
                 {cartCount > 0 && (
                   <Badge bg="danger" pill className="cart-badge">
                     {cartCount}
@@ -71,8 +71,7 @@ function Header() {
                 )}
               </Nav.Link>
               
-              {/* <Nav.Link as={Link} to="/contact" className="text-white">Contact Us</Nav.Link> */}
-              {/* <Nav.Link as={Link} to="/diagnostics" className="text-white">Diagnostics</Nav.Link> */}
+              
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -12,6 +12,9 @@ import AdminLogin from "./pages/Adminlogin"
 import ExploreNow from "./pages/ExploreNow"
 import LaptopRepair from "./pages/LaptopRepair"
 import Cart from "./pages/Cart"
+import Contact from "./pages/Contact"
+import KnowledgeBase from "./pages/KnowledgeBase"
+import WarrantyRepairs from "./pages/WarrantyRepairs"
 import { LocationProvider } from "./context/LocationContext"
 import { CartProvider } from "./context/CartContext"
 
@@ -31,6 +34,9 @@ function App() {
         <Route path="/shop" element={<Shop/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/support" element={<Support/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path="/knowledge-base" element={<KnowledgeBase/>}/>
+        <Route path="/warranty-repairs" element={<WarrantyRepairs/>}/>
         <Route path="/adminlogin" element={<AdminLogin/>}/>
         <Route path="/admindashboard" element={<AdminDashboard/>}/>
         <Route path="/explorenow" element={<ExploreNow/>}/>

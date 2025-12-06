@@ -65,8 +65,8 @@ function LaptopRepair() {
         {
             name: 'ChipFix',
             address: '1/ XV/1624, 1, CHAINHALL BUILDING, ADIMALI, IDUKKI, KERALA, Pincode: 685561',
-            phone: '0091 8589856868',
-            email: 'Info@easycare.services',
+            phone: ' 8589856891',
+            email: 'chifix@care.services',
             url: '/in/idukki/store/adimali'
         }
     ];
@@ -126,9 +126,9 @@ function LaptopRepair() {
                             {/* District Selector Button */}
                             <div className="mb-3">
                                 <Button
-                                    variant="outline-primary"
                                     onClick={() => setShowModal(true)}
                                     className="me-3"
+                                    variant='outline-primary'
                                 >
                                     📍 Choose Your District
                                 </Button>
@@ -237,14 +237,14 @@ function LaptopRepair() {
                                     <Col md={6} key={index} className="mb-4">
                                         <div className="tile p-3 border rounded shadow-sm">
                                             <h6 className="mb-3">
-                                                <a href={store.url} className="text-decoration-none">{store.name} </a>
+                                                <a href={store.url} className="text-decoration-none" style={{ color: '#772953' }}>{store.name} </a>
                                             </h6>
                                             <p><small>{store.address}</small></p>
                                             <p>
-                                                Number: <a className="store-phone text-decoration-none" href={`tel:${store.phone}`}>{store.phone}</a>
+                                                Number: <a className="store-phone text-decoration-none" href={`tel:${store.phone}`} style={{ color: '#772953' }}> {store.phone}</a>
                                             </p>
                                             <p>
-                                                Email: <a className="store-email text-decoration-none" href={`mailto:${store.email}`}>{store.email}</a>
+                                                Email: <a className="store-email text-decoration-none" href={`mailto:${store.email}`} style={{ color: '#772953' }}>{store.email}</a>
                                             </p>
                                         </div>
                                     </Col>
@@ -484,7 +484,7 @@ function LaptopRepair() {
                                 </Row>
 
                                 <div className="text-center">
-                                    <Button type="submit" variant="primary" className="w-100" size="sm">
+                                    <Button type="submit" className="w-50" size="sm" style={{ backgroundColor: '#772953', borderColor: '#772953', color: 'white' }}>
                                         Submit
                                     </Button>
                                 </div>
@@ -504,9 +504,17 @@ function LaptopRepair() {
                         {Object.keys(serviceCenters).map((district) => (
                             <Button
                                 key={district}
-                                variant="outline-primary"
                                 onClick={() => handleSelect(district)}
                                 className="text-start"
+                                style={{ backgroundColor: 'white', borderColor: '#772953', color: '#772953' }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.backgroundColor = '#772953';
+                                    e.target.style.color = 'white';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.backgroundColor = 'white';
+                                    e.target.style.color = '#772953';
+                                }}
                             >
                                 {district}
                             </Button>
