@@ -12,7 +12,7 @@ import dellLogo from '../assets/images/dellLogo.jpg'
 import huaweiLogo from '../assets/images/huawailogo.jpg'
 import acerlogo from '../assets/images/acerlogo.jpg'
 import lenovologo from '../assets/images/lenovologo.jpg'
-import lglogo from '../assets/images/lglogo.jpg'
+import lglogo from '../assets/images/lgLogo.jpg'
 import XiaomiLogo from '../assets/images/xiaomiLogo.jpg'
 
 
