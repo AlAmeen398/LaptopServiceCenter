@@ -3,7 +3,7 @@ services:
     name: laptop-service-center
     env: static
     buildCommand: npm install --legacy-peer-deps && npm run build
-    staticPublishPath: dist
+    staticPublishPath: ./dist
     routes:
       - type: rewrite
         source: /*
