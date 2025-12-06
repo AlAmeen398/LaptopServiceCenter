@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import backgroundImage from '../assets/images/pexels-sora-shimazaki-5668859.jpg'
 import ServiceBox from '../components/ServiceBox';
 import Repairs from '../components/Repairs';
@@ -10,9 +10,11 @@ import ImageCarousel from '../components/ImageCarousel';
 
 
 function Home() {
+  const navigate = useNavigate();
+  
   const supportCards = [
-    { icon: 'fa-solid fa-gears', title: 'Technical Support' },
-    { icon: 'fa-solid fa-comments', title: 'Sales & Event' }
+    { icon: 'fa-solid fa-gears', title: 'Technical Support', link: '/laptop-repair' },
+    { icon: 'fa-solid fa-comments', title: 'Sales & Event', link: '/shop' }
   ];
 
   const services = [
@@ -87,13 +89,6 @@ function Home() {
             Expert repairs for smartphones, tablets, laptops & mor
           </div>
           <div className="d-flex gap-3">
-            <Link to={'/loginpage'}>
-              <button className="btn btn-outline-light btn-sm">Login</button>
-            </Link>
-            <Link to={'/laptop-services'}>
-              <button className="btn btn-outline-light btn-sm">Book a Repair</button>
-            </Link>
-
             <Link to={'/adminlogin'}>
               <button className='btn btn-outline-light btn-sm'>Admin</button>
             </Link>
@@ -124,6 +119,7 @@ function Home() {
                     border: '1px solid rgba(255, 255, 255, 0.3)',
                     borderRadius: '15px',
                     animation: `slideIn${index === 0 ? 'Left' : 'Right'} 1s ease-out`,
+                    cursor: 'pointer',
                     '@keyframes slideInLeft': {
                       from: { transform: 'translateX(-100%)', opacity: 0 },
                       to: { transform: 'translateX(0)', opacity: 1 }
@@ -133,6 +129,7 @@ function Home() {
                       to: { transform: 'translateX(0)', opacity: 1 }
                     }
                   }}
+                  onClick={() => navigate(card.link)}
                 >
                   <Card.Body className="text-center">
                     <i className={`${card.icon} fa-2xl mb-3`}></i>

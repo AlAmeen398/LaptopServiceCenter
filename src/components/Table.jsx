@@ -171,7 +171,7 @@ function Table() {
       <Container className="py-5">
         <div className="mb-4 text-center">
           <h2 className="fw-bold display-6 mb-2">Customer Service Records</h2>
-          <p className="text-muted">Track and manage customer repair details</p>
+          <p style={{color:'#772953', fontWeight:'500'}}>Track and manage customer repair details</p>
         </div>
         
         <div className="table-container">
@@ -229,8 +229,8 @@ function Table() {
         </div>
         
         <div className="mt-4 text-center">
-          <p className="text-muted small">
-            <i className="fa-solid fa-circle-info me-2"></i>
+          <p style={{color:'#772953', fontWeight:'500'}}>
+            <i className="fa-solid fa-circle-info me-2" ></i>
             Total Records: {customers.length} | Last Updated: {new Date().toLocaleDateString()}
           </p>
         </div>

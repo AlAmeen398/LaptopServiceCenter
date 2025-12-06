@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 
 function About() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="d-flex align-items-center justify-content-center m-5 min-h-screen bg-gray-100">
       <Card style={{ width: "30rem", padding: "20px" }}>
         <Card.Body>
           <Card.Title className="text-center mb-4">About Us</Card.Title>

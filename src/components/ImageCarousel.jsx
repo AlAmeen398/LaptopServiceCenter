@@ -63,8 +63,8 @@ function ImageCarousel() {
         }
         
         .custom-carousel .carousel-caption {
-          background: rgba(171, 44, 103, 0.6);
-          backdrop-filter: blur(10px);
+          background: rgba(174, 171, 172, 0.6);
+          backdrop-filter: blur(px);
           border-radius: 15px;
           padding: 2rem;
           bottom: 3rem;
@@ -82,10 +82,10 @@ function ImageCarousel() {
           text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
         
-        .custom-carousel .carousel-caption p {
+        .custom-carousel .carousel-caption h5 {
           font-size: 1.1rem;
           margin-bottom: 0;
-          text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
         .custom-carousel .carousel-control-prev-icon,
@@ -120,14 +120,14 @@ function ImageCarousel() {
       <div className="container py-5">
         <div className="mb-4 text-center">
           <h2 className="fw-bold display-6 mb-2">Our Services</h2>
-          <p className="text-muted">Explore our professional repair solutions</p>
+          <p style={{color:'#772953', fontWeight:'500'}}>Explore our professional repair solutions</p>
         </div>
         
         <Carousel 
           activeIndex={index} 
           onSelect={handleSelect} 
           className="custom-carousel"
-          interval={5000}
+          interval={3000}
           pause="hover"
           fade={true}
           controls={false}
@@ -141,7 +141,7 @@ function ImageCarousel() {
               />
               <Carousel.Caption>
                 <h3>{image.title}</h3>
-                <p>{image.description}</p>
+                <h5 style={{color:'#772953', fontWeight:'500'}}>{image.description}</h5>
               </Carousel.Caption>
             </Carousel.Item>
           ))}

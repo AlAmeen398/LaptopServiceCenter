@@ -14,6 +14,29 @@ function Footer() {
 
   return (
     <>
+      <style>{`
+        .social-icon {
+          transition: all 0.3s ease;
+          display: inline-block;
+        }
+        
+        .social-icon:hover {
+          transform: scale(1.2);
+        }
+        
+        .social-icon.facebook:hover i {
+          color: #1877f2 !important;
+        }
+        
+        .social-icon.twitter:hover i {
+          color: #1da1f2 !important;
+        }
+        
+        .social-icon.instagram:hover i {
+          color: #e4405f !important;
+        }
+      `}</style>
+      
       <footer className="bg-light pt-4">
         <Container>
           <Row className="text-center text-md-start">
@@ -30,7 +53,7 @@ function Footer() {
             <Col md={4} className="mb-4">
               <h5 className="text-uppercase">Quick Links</h5>
               <ul className="list-unstyled">
-                <li><Link to="/" className="text-decoration-none text-dark">Home</Link></li>
+                <li><Link to="/" className="text-decoration-none text-dark" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</Link></li>
                 <li><Link to="/about" className="text-decoration-none text-dark">About</Link></li>
                 <li><Link to="/contact" className="text-decoration-none text-dark">Contact</Link></li>
               </ul>
@@ -51,13 +74,13 @@ function Footer() {
               )}
 
               <div className="mt-3">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-dark me-3">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon facebook text-dark me-3">
                   <i className="fab fa-facebook fa-2x"></i>
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-dark me-3">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon twitter text-dark me-3">
                   <i className="fab fa-twitter fa-2x"></i>
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-dark">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon instagram text-dark">
                   <i className="fab fa-instagram fa-2x"></i>
                 </a>
               </div>

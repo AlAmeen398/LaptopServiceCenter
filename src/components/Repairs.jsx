@@ -111,7 +111,7 @@ function Repairs() {
                 >
                   <Card.Body className="text-center p-4">
                     <div className="stats-icon mb-3" style={{ color: stat.color }}>
-                      <i className={stat.icon}></i>
+                      <i className={stat.icon} style={{color:'#772953'}}></i>
                     </div>
                     <h5 className="mb-3 fw-semibold text-secondary">{stat.title}</h5>
                     <div className="stats-count mb-3">{stat.count}</div>
