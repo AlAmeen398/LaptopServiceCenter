@@ -1,8 +1,7 @@
 services:
   - type: web
     name: laptop-service-center
-    runtime: node
-    env: node
+    runtime: static
     buildCommand: npm install --legacy-peer-deps && npm run build
     staticPublishPath: ./dist
     routes:
