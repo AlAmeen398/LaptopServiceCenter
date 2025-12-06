@@ -49,38 +49,7 @@ function Support() {
         </Row>
       </Container>
 
-      {/* Submit a Ticket Form */}
-      <Container className="py-5">
-        <h2 className="text-center mb-4 fw-bold">Submit a Support Ticket</h2>
-        <Row className="justify-content-center">
-          <Col md={8}>
-            <Card className="shadow-sm p-4">
-              <Form>
-                <Form.Group className="mb-3" controlId="formName">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter your name" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formEmail">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="Enter your email" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formIssue">
-                  <Form.Label>Issue Description</Form.Label>
-                  <Form.Control as="textarea" rows={4} placeholder="Describe your issue" />
-                </Form.Group>
-
-                <div className="text-center">
-                  <Button variant="primary" type="submit">
-                    Submit Ticket
-                  </Button>
-                </div>
-              </Form>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+      
     </div>
     </>
   )
