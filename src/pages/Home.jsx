@@ -2,6 +2,10 @@ import React from 'react'
 import { Button, Card, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import backgroundImage from '../assets/images/pexels-sora-shimazaki-5668859.jpg'
+import ServiceBox from '../components/ServiceBox';
+import Repairs from '../components/Repairs';
+import Table from '../components/Table';
+import ImageCarousel from '../components/ImageCarousel';
 
 
 
@@ -58,45 +62,7 @@ function Home() {
 
   return (
     <>
-      <style>{`
-          @keyframes slideInLeft {
-            from {
-              transform: translateX(-100%);
-              opacity: 0;
-            }
-            to {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
-          
-          @keyframes slideInRight {
-            from {
-              transform: translateX(100%);
-              opacity: 0;
-            }
-            to {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
-            .service-card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          cursor: pointer;
-        }
-        .service-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
-        }
-        .btn-hover {
-          transition: all 0.3s ease;
-        }
-        .btn-hover:hover {
-          background-color: var(--bs-primary) !important;
-          color: white !important;
-          border-color: var(--bs-primary) !important;
-        }
-        `}</style>
+      
       <div
         className="min-vh-100 d-flex flex-column"
         style={{
@@ -202,7 +168,7 @@ function Home() {
                   <Button
                     variant="outline-light"
                     className="w-50 mt-2 fw-bold border-2 btn-hover text-black"
-                    
+
                   >
                     Get Service <i className="fa-solid fa-arrow-right ms-2"></i>
                   </Button>
@@ -213,11 +179,11 @@ function Home() {
               <div className="overflow-auto position-relative scrollbar-hidden " style={{ height: '450px' }}>
                 <div className="cards-container m-3">
                   {services.map((service, index) => (
-                    <Card 
-                      key={index} 
-                      className="shadow-lg border-0 rounded-4 service-card " 
-                      style={{ 
-                        width: '300px', 
+                    <Card
+                      key={index}
+                      className="shadow-lg border-0 rounded-4 service-card "
+                      style={{
+                        width: '300px',
                         display: 'inline-block',
                         flexShrink: 0
                       }}
@@ -249,9 +215,50 @@ function Home() {
           </Row>
         </Container>
       </section>
+      <ServiceBox/>
+      <ImageCarousel/>
+      <Table/>
+      <Repairs/>
 
       <style>{`
-        .scrollbar-hidden::-webkit-scrollbar {
+          @keyframes slideInLeft {
+            from {
+              transform: translateX(-100%);
+              opacity: 0;
+            }
+            to {
+              transform: translateX(0);
+              opacity: 1;
+            }
+          }
+          
+          @keyframes slideInRight {
+            from {
+              transform: translateX(100%);
+              opacity: 0;
+            }
+            to {
+              transform: translateX(0);
+              opacity: 1;
+            }
+          }
+            .service-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          cursor: pointer;
+        }
+        .service-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
+        }
+        .btn-hover {
+          transition: all 0.3s ease;
+        }
+        .btn-hover:hover {
+          background-color: var(--bs-primary) !important;
+          color: white !important;
+          border-color: var(--bs-primary) !important;
+        }
+          .scrollbar-hidden::-webkit-scrollbar {
           display: none;
         }
         .scrollbar-hidden {
@@ -287,8 +294,8 @@ function Home() {
           transform: translateY(-10px);
           box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
         }
-      `}</style>
-
+        `}</style>
+      
     </>
   )
 }
