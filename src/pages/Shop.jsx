@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Button, Pagination, Form, InputGroup, Toast, ToastContainer } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Pagination, Form, InputGroup, Toast } from 'react-bootstrap';
+import { ToastContainer } from 'react-bootstrap';
 import { useCart } from '../context/CartContext';
 
 function Shop() {
