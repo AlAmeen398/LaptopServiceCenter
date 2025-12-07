@@ -19,6 +19,10 @@ function Header() {
           transform: scale(1.1);
         }
         
+        .cart-link:hover i {
+          color: #e95420 !important;
+        }
+        
         .cart-badge {
           position: absolute;
           top: -8px;
@@ -33,6 +37,14 @@ function Header() {
           50% {
             transform: scale(1.1);
           }
+        }
+        
+        .nav-link {
+          transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+          color: #e95420 !important;
         }
       `}</style>
       

@@ -82,6 +82,43 @@ function LaptopRepair() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Form submitted:', formData);
+        
+        // Get device name and service name for display
+        const deviceMap = {
+            '1': 'Mobile',
+            '2': 'Laptop',
+            '3': 'Tablet',
+            '4': 'Smartwatch'
+        };
+        
+        const deviceName = deviceMap[formData.serviceDeviceId] || 'Device';
+        const brandName = formData.deviceBrandId.charAt(0).toUpperCase() + formData.deviceBrandId.slice(1);
+        const fullDeviceName = `${brandName} ${deviceName}`;
+        const serviceName = formData.serviceId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') || 'General Repair';
+        
+        // Create complaint object
+        const complaint = {
+            id: Date.now(), // Unique ID based on timestamp
+            customer: formData.name,
+            phone: formData.phoneNumber,
+            email: formData.email,
+            device: fullDeviceName,
+            model: formData.deviceModelId,
+            issue: serviceName,
+            message: formData.message,
+            serviceType: formData.serviceType,
+            address: formData.customerAddress,
+            priority: 'Medium', // Default priority
+            status: 'Pending',
+            assignedTo: null,
+            submittedDate: new Date().toISOString()
+        };
+        
+        // Save to localStorage
+        const existingComplaints = JSON.parse(localStorage.getItem('serviceComplaints') || '[]');
+        existingComplaints.push(complaint);
+        localStorage.setItem('serviceComplaints', JSON.stringify(existingComplaints));
+        
         toast.success('Thank you for your request! We will contact you soon.', {
             position: 'top-right',
             autoClose: 3000,

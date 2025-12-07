@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Row, Col, Card, Button, Table, Badge } from 'react-bootstrap';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Cart() {
   const { cartItems, removeFromCart, updateQuantity, clearCart, getCartTotal } = useCart();
@@ -15,6 +17,20 @@ function Cart() {
 
   const formatPrice = (price) => {
     return price.replace(/[₹,]/g, '');
+  };
+
+  const handleCheckout = () => {
+    toast.success('Your order is placed successfully!', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+    setTimeout(() => {
+      clearCart();
+    }, 3000);
   };
 
   return (
@@ -191,7 +207,7 @@ function Cart() {
                     <h5 className="text-primary">₹{Math.round(getCartTotal() * 1.18).toLocaleString()}</h5>
                   </div>
                   
-                  <Button variant="primary" className="w-100 mb-2" size="lg">
+                  <Button variant="primary" className="w-100 mb-2" size="lg" onClick={handleCheckout}>
                     <i className="fa-solid fa-credit-card me-2"></i>
                     Proceed to Checkout
                   </Button>
@@ -208,6 +224,7 @@ function Cart() {
           </Row>
         )}
       </Container>
+      <ToastContainer />
     </>
   );
 }

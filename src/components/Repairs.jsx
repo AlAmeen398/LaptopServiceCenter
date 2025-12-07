@@ -18,7 +18,7 @@ function Repairs() {
       count: '2014',
       countKey: null,
       description: 'A decade of excellence in laptop service',
-      color: '#667eea',
+      color: '#e95420',
       progress: null
     },
     {
@@ -28,7 +28,7 @@ function Repairs() {
       count: 111203,
       countKey: 'repairs',
       description: 'Devices restored with precision & care',
-      color: '#50c878',
+      color: '#e95420',
       progress: 95
     },
     {
@@ -38,7 +38,7 @@ function Repairs() {
       count: 12575,
       countKey: 'warranty',
       description: '90-day warranty on all repairs',
-      color: '#f59e0b',
+      color: '#e95420',
       progress: 88
     }
   ];

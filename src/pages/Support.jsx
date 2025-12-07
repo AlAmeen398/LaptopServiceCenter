@@ -4,6 +4,102 @@ import { useNavigate } from 'react-router-dom'
 
 function Support() {
   const navigate = useNavigate();
+  
+  const supportOptions = [
+    {
+      icon: 'fa-headset',
+      iconColor: 'text-success',
+      bgColor: 'bg-primary',
+      title: 'Contact Support',
+      description: 'Need to speak with us? Our support team is available 24/7 to assist you.',
+      buttonText: 'Contact Us',
+      buttonVariant: 'success',
+      buttonIcon: 'fa-comments',
+      link: '/contact'
+    },
+    {
+      icon: 'fa-book-open',
+      iconColor: 'text-primary',
+      bgColor: 'bg-success',
+      title: 'Knowledge Base',
+      description: 'Find FAQs, manuals, and troubleshooting guides easily in our library.',
+      buttonText: 'Browse Articles',
+      buttonVariant: 'primary',
+      buttonIcon: 'fa-book',
+      link: '/knowledge-base'
+    },
+    {
+      icon: 'fa-shield-halved',
+      iconColor: 'text-success',
+      bgColor: 'bg-warning',
+      title: 'Warranty & Repairs',
+      description: 'Check your warranty status or request a professional repair service.',
+      buttonText: 'Check Warranty',
+      buttonVariant: 'success',
+      buttonIcon: 'fa-certificate',
+      link: '/warranty-repairs'
+    }
+  ];
+
+  const statistics = [
+    { icon: 'fa-users', value: '100K+', label: 'Happy Customers', bgColor: '#e95420' },
+    { icon: 'fa-clock', value: '24-48h', label: 'Repair Time', bgColor: '#772953' },
+    { icon: 'fa-star', value: '4.8/5', label: 'Rating', bgColor: '#e95420' },
+    { icon: 'fa-shield-halved', value: '90d', label: 'Warranty', bgColor: '#772953' }
+  ];
+
+  const topics = [
+    {
+      icon: 'fa-screwdriver-wrench',
+      iconColor: 'text-primary',
+      bgColor: 'bg-primary',
+      title: 'How to book a repair?',
+      description: 'Step-by-step guide to schedule service'
+    },
+    {
+      icon: 'fa-credit-card',
+      iconColor: 'text-success',
+      bgColor: 'bg-success',
+      title: 'Payment methods accepted',
+      description: 'Learn about payment options'
+    },
+    {
+      icon: 'fa-truck',
+      iconColor: 'text-success',
+      bgColor: 'bg-warning',
+      title: 'Pickup and delivery service',
+      description: 'Free pickup across Kerala'
+    },
+    {
+      icon: 'fa-clock-rotate-left',
+      iconColor: 'text-primary',
+      bgColor: 'bg-info',
+      title: 'Track repair status',
+      description: 'Check your device status online'
+    }
+  ];
+
+  const locations = [
+    {
+      branch: 'Main Branch',
+      badgeColor: 'primary',
+      iconColor: 'text-primary',
+      city: 'Ernakulam',
+      address: 'MG Road, Near South Railway Station, Ernakulam, Kerala 682016',
+      phone: '+91 8589856891',
+      buttonVariant: 'primary'
+    },
+    {
+      branch: 'Branch',
+      badgeColor: 'success',
+      iconColor: 'text-success',
+      city: 'Trivandrum',
+      address: 'Statue Junction, Near Secretariat, Trivandrum, Kerala 695001',
+      phone: '+91 8589856892',
+      buttonVariant: 'success'
+    }
+  ];
+
   return (
     <>
     <style>{`
@@ -66,7 +162,7 @@ function Support() {
           <i className="fa-solid fa-headset me-3"></i>
           Support Center
         </h1>
-        <p className="lead fs-4" style={{ color: '#5a1f3f' }}>We're here to help you 24/7. Find the support you need below.</p>
+        <p className="lead fs-4" >We're here to help you 24/7. Find the support you need below.</p>
         <Badge className="px-4 py-2 fs-6" style={{ backgroundColor: '#772953', color: 'white' }}>
           <i className="fa-solid fa-clock me-2"></i>
           Response Time: Under 2 Hours
@@ -76,53 +172,28 @@ function Support() {
       {/* Support Options */}
       <Container className="py-5">
         <Row className="g-4 text-center mb-5">
-          <Col xs={12} md={4}>
-            <Card className="support-card h-100 shadow-lg border-0 bg-white">
-              <Card.Body className="p-4">
-                <div className="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-4 mb-4">
-                  <i className="fa-solid fa-headset fa-3x text-primary"></i>
-                </div>
-                <Card.Title className="h4 mb-3 fw-bold">Contact Support</Card.Title>
-                <Card.Text className="text-muted mb-4">Need to speak with us? Our support team is available 24/7 to assist you.</Card.Text>
-                <Button variant="primary" size="lg" className="px-4 shadow-sm" onClick={() => navigate('/contact')}>
-                  <i className="fa-solid fa-comments me-2"></i>
-                  Contact Us
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col xs={12} md={4}>
-            <Card className="support-card h-100 shadow-lg border-0 bg-white">
-              <Card.Body className="p-4">
-                <div className="bg-success bg-opacity-10 rounded-circle d-inline-flex p-4 mb-4">
-                  <i className="fa-solid fa-book-open fa-3x text-success"></i>
-                </div>
-                <Card.Title className="h4 mb-3 fw-bold">Knowledge Base</Card.Title>
-                <Card.Text className="text-muted mb-4">Find FAQs, manuals, and troubleshooting guides easily in our library.</Card.Text>
-                <Button variant="success" size="lg" className="px-4 shadow-sm" onClick={() => navigate('/knowledge-base')}>
-                  <i className="fa-solid fa-book me-2"></i>
-                  Browse Articles
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col xs={12} md={4}>
-            <Card className="support-card h-100 shadow-lg border-0 bg-white">
-              <Card.Body className="p-4">
-                <div className="bg-warning bg-opacity-10 rounded-circle d-inline-flex p-4 mb-4">
-                  <i className="fa-solid fa-shield-halved fa-3x text-warning"></i>
-                </div>
-                <Card.Title className="h4 mb-3 fw-bold">Warranty & Repairs</Card.Title>
-                <Card.Text className="text-muted mb-4">Check your warranty status or request a professional repair service.</Card.Text>
-                <Button variant="warning" size="lg" className="px-4 shadow-sm text-white" onClick={() => navigate('/warranty-repairs')}>
-                  <i className="fa-solid fa-certificate me-2"></i>
-                  Check Warranty
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
+          {supportOptions.map((option, index) => (
+            <Col xs={12} md={4} key={index}>
+              <Card className="support-card h-100 shadow-lg border-0 bg-white">
+                <Card.Body className="p-4">
+                  <div className={`${option.bgColor} bg-opacity-10 rounded-circle d-inline-flex p-4 mb-4`}>
+                    <i className={`fa-solid ${option.icon} fa-3x ${option.iconColor}`}></i>
+                  </div>
+                  <Card.Title className="h4 mb-3 fw-bold">{option.title}</Card.Title>
+                  <Card.Text className="text-muted mb-4">{option.description}</Card.Text>
+                  <Button 
+                    variant={option.buttonVariant} 
+                    size="lg" 
+                    className={`px-4 shadow-sm ${option.buttonVariant === 'success' && option.title === 'Warranty & Repairs' ? 'text-white' : ''}`}
+                    onClick={() => navigate(option.link)}
+                  >
+                    <i className={`fa-solid ${option.buttonIcon} me-2`}></i>
+                    {option.buttonText}
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </Container>
 
@@ -165,42 +236,17 @@ function Support() {
       <Container className="py-5">
         <h2 className="text-center mb-5 fw-bold display-6">Why Choose Our Support?</h2>
         <Row className="g-4 text-center">
-          <Col xs={6} md={3}>
-            <Card className="stat-card border-0 shadow-lg h-100 bg-primary bg-gradient text-white">
-              <Card.Body className="p-4">
-                <i className="fa-solid fa-users fa-4x mb-4"></i>
-                <h1 className="fw-bold mb-2 display-5">100K+</h1>
-                <p className="mb-0 fs-5">Happy Customers</p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col xs={6} md={3}>
-            <Card className="stat-card border-0 shadow-lg h-100 bg-success bg-gradient text-white">
-              <Card.Body className="p-4">
-                <i className="fa-solid fa-clock fa-4x mb-4"></i>
-                <h1 className="fw-bold mb-2 display-5">24-48h</h1>
-                <p className="mb-0 fs-5">Repair Time</p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col xs={6} md={3}>
-            <Card className="stat-card border-0 shadow-lg h-100 bg-warning bg-gradient text-white">
-              <Card.Body className="p-4">
-                <i className="fa-solid fa-star fa-4x mb-4"></i>
-                <h1 className="fw-bold mb-2 display-5">4.8/5</h1>
-                <p className="mb-0 fs-5">Rating</p>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col xs={6} md={3}>
-            <Card className="stat-card border-0 shadow-lg h-100 bg-danger bg-gradient text-white">
-              <Card.Body className="p-4">
-                <i className="fa-solid fa-shield-halved fa-4x mb-4"></i>
-                <h1 className="fw-bold mb-2 display-5">90d</h1>
-                <p className="mb-0 fs-5">Warranty</p>
-              </Card.Body>
-            </Card>
-          </Col>
+          {statistics.map((stat, index) => (
+            <Col xs={6} md={3} key={index}>
+              <Card className="stat-card border-0 shadow-lg h-100 bg-gradient text-white" style={{backgroundColor: stat.bgColor}}>
+                <Card.Body className="p-4">
+                  <i className={`fa-solid ${stat.icon} fa-4x mb-4`}></i>
+                  <h1 className="fw-bold mb-2 display-5">{stat.value}</h1>
+                  <p className="mb-0 fs-5">{stat.label}</p>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </Container>
 
@@ -208,58 +254,21 @@ function Support() {
       <Container className="py-5 bg-light">
         <h2 className="text-center mb-5 fw-bold display-6">Popular Support Topics</h2>
         <Row className="g-4">
-          <Col md={6}>
-            <Card className="topic-card border-0 shadow-sm">
-              <Card.Body className="p-4 d-flex align-items-center">
-                <div className="bg-primary bg-opacity-10 rounded-circle p-3 me-4">
-                  <i className="fa-solid fa-screwdriver-wrench fa-2x text-primary"></i>
-                </div>
-                <div>
-                  <h5 className="mb-2 fw-bold">How to book a repair?</h5>
-                  <small className="text-muted">Step-by-step guide to schedule service</small>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={6}>
-            <Card className="topic-card border-0 shadow-sm">
-              <Card.Body className="p-4 d-flex align-items-center">
-                <div className="bg-success bg-opacity-10 rounded-circle p-3 me-4">
-                  <i className="fa-solid fa-credit-card fa-2x text-success"></i>
-                </div>
-                <div>
-                  <h5 className="mb-2 fw-bold">Payment methods accepted</h5>
-                  <small className="text-muted">Learn about payment options</small>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={6}>
-            <Card className="topic-card border-0 shadow-sm">
-              <Card.Body className="p-4 d-flex align-items-center">
-                <div className="bg-warning bg-opacity-10 rounded-circle p-3 me-4">
-                  <i className="fa-solid fa-truck fa-2x text-warning"></i>
-                </div>
-                <div>
-                  <h5 className="mb-2 fw-bold">Pickup and delivery service</h5>
-                  <small className="text-muted">Free pickup across Kerala</small>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={6}>
-            <Card className="topic-card border-0 shadow-sm">
-              <Card.Body className="p-4 d-flex align-items-center">
-                <div className="bg-info bg-opacity-10 rounded-circle p-3 me-4">
-                  <i className="fa-solid fa-clock-rotate-left fa-2x text-info"></i>
-                </div>
-                <div>
-                  <h5 className="mb-2 fw-bold">Track repair status</h5>
-                  <small className="text-muted">Check your device status online</small>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
+          {topics.map((topic, index) => (
+            <Col md={6} key={index}>
+              <Card className="topic-card border-0 shadow-sm">
+                <Card.Body className="p-4 d-flex align-items-center">
+                  <div className={`${topic.bgColor} bg-opacity-10 rounded-circle p-3 me-4`}>
+                    <i className={`fa-solid ${topic.icon} fa-2x ${topic.iconColor}`}></i>
+                  </div>
+                  <div>
+                    <h5 className="mb-2 fw-bold">{topic.title}</h5>
+                    <small className="text-muted">{topic.description}</small>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </Container>
 
@@ -267,72 +276,41 @@ function Support() {
       <Container className="py-5">
         <h2 className="text-center mb-5 fw-bold display-6">Our Service Centers</h2>
         <Row className="g-4">
-          <Col md={6}>
-            <Card className="location-card border-0 shadow-lg h-100">
-              <Card.Body className="p-4">
-                <div className="d-flex align-items-start mb-4">
-                  <div className="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
-                    <i className="fa-solid fa-location-dot fa-3x text-primary"></i>
+          {locations.map((location, index) => (
+            <Col md={6} key={index}>
+              <Card className="location-card border-0 shadow-lg h-100">
+                <Card.Body className="p-4">
+                  <div className="d-flex align-items-start mb-4">
+                    <div className={`bg-${location.badgeColor} bg-opacity-10 rounded-circle p-3 me-3`}>
+                      <i className={`fa-solid fa-location-dot fa-3x ${location.iconColor}`}></i>
+                    </div>
+                    <div>
+                      <Badge bg={location.badgeColor} className="mb-2 px-3 py-2">{location.branch}</Badge>
+                      <h4 className="fw-bold mb-3">{location.city}</h4>
+                    </div>
                   </div>
-                  <div>
-                    <Badge bg="primary" className="mb-2 px-3 py-2">Main Branch</Badge>
-                    <h4 className="fw-bold mb-3">Ernakulam</h4>
+                  <div className="mb-3">
+                    <div className="d-flex align-items-start mb-3">
+                      <i className="fa-solid fa-map-marker-alt text-black me-3 mt-1"></i>
+                      <p className="text-muted mb-0">{location.address}</p>
+                    </div>
+                    <div className="d-flex align-items-center mb-3">
+                      <i className="fa-solid fa-phone text-black me-3"></i>
+                      <p className="text-muted mb-0 fw-bold">{location.phone}</p>
+                    </div>
+                    <div className="d-flex align-items-center mb-3">
+                      <i className="fa-solid fa-clock text-black me-3"></i>
+                      <p className="text-muted mb-0">Mon-Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
                   </div>
-                </div>
-                <div className="mb-3">
-                  <div className="d-flex align-items-start mb-3">
-                    <i className="fa-solid fa-map-marker-alt text-primary me-3 mt-1"></i>
-                    <p className="text-muted mb-0">MG Road, Near South Railway Station, Ernakulam, Kerala 682016</p>
-                  </div>
-                  <div className="d-flex align-items-center mb-3">
-                    <i className="fa-solid fa-phone text-success me-3"></i>
-                    <p className="text-muted mb-0 fw-bold">+91 8589856891</p>
-                  </div>
-                  <div className="d-flex align-items-center mb-3">
-                    <i className="fa-solid fa-clock text-warning me-3"></i>
-                    <p className="text-muted mb-0">Mon-Sat: 9:00 AM - 7:00 PM</p>
-                  </div>
-                </div>
-                <Button variant="primary" className="w-100 shadow-sm" onClick={() => navigate('/contact')}>
-                  <i className="fa-solid fa-directions me-2"></i>
-                  Get Directions
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={6}>
-            <Card className="location-card border-0 shadow-lg h-100">
-              <Card.Body className="p-4">
-                <div className="d-flex align-items-start mb-4">
-                  <div className="bg-success bg-opacity-10 rounded-circle p-3 me-3">
-                    <i className="fa-solid fa-location-dot fa-3x text-success"></i>
-                  </div>
-                  <div>
-                    <Badge bg="success" className="mb-2 px-3 py-2">Branch</Badge>
-                    <h4 className="fw-bold mb-3">Trivandrum</h4>
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <div className="d-flex align-items-start mb-3">
-                    <i className="fa-solid fa-map-marker-alt text-success me-3 mt-1"></i>
-                    <p className="text-muted mb-0">Statue Junction, Near Secretariat, Trivandrum, Kerala 695001</p>
-                  </div>
-                  <div className="d-flex align-items-center mb-3">
-                    <i className="fa-solid fa-phone text-success me-3"></i>
-                    <p className="text-muted mb-0 fw-bold">+91 8589856892</p>
-                  </div>
-                  <div className="d-flex align-items-center mb-3">
-                    <i className="fa-solid fa-clock text-warning me-3"></i>
-                    <p className="text-muted mb-0">Mon-Sat: 9:00 AM - 7:00 PM</p>
-                  </div>
-                </div>
-                <Button variant="success" className="w-100 shadow-sm" onClick={() => navigate('/contact')}>
-                  <i className="fa-solid fa-directions me-2"></i>
-                  Get Directions
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
+                  <Button variant={location.buttonVariant} className="w-100 shadow-sm" onClick={() => navigate('/contact')}>
+                    <i className="fa-solid fa-directions me-2"></i>
+                    Get Directions
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </Container>
 
@@ -347,7 +325,7 @@ function Support() {
             <p className="lead mb-4 fs-4">
               We understand device issues can be urgent. Our express service gets your device fixed fast!
             </p>
-            <Badge bg="warning" text="dark" className="px-4 py-3 mb-4 fs-5">
+            <Badge bg="success" text="black" className="px-4 py-3 mb-4 fs-5">
               <i className="fa-solid fa-bolt me-2"></i>
               Express Service Available
             </Badge>

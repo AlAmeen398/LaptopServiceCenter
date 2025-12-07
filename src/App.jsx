@@ -15,6 +15,10 @@ import Cart from "./pages/Cart"
 import Contact from "./pages/Contact"
 import KnowledgeBase from "./pages/KnowledgeBase"
 import WarrantyRepairs from "./pages/WarrantyRepairs"
+import MonthlySalary from "./pages/MonthlySalary"
+import CalendarPage from "./pages/CalendarPage"
+import AssignWork from "./pages/AssignWork"
+import StaffAttendance from "./pages/StaffAttendance"
 import { LocationProvider } from "./context/LocationContext"
 import { CartProvider } from "./context/CartContext"
 
@@ -41,6 +45,10 @@ function App() {
         <Route path="/admindashboard" element={<AdminDashboard/>}/>
         <Route path="/explorenow" element={<ExploreNow/>}/>
         <Route path="/laptop-repair" element={<LaptopRepair/>}/>
+        <Route path="/monthlysalary" element={<MonthlySalary/>}/>
+        <Route path="/calendar" element={<CalendarPage/>}/>
+        <Route path="/assignwork" element={<AssignWork/>}/>
+        <Route path="/staffattendance" element={<StaffAttendance/>}/>
 
         
       </Routes>

@@ -181,13 +181,10 @@ function Table() {
                 <tr>
                   <th>#</th>
                   <th>Customer Name</th>
-                  <th>Address</th>
                   <th>Device</th>
                   <th>Warranty</th>
-                  <th>Delivery Type</th>
                   <th>Complaint</th>
-                  <th>Status</th>
-                  <th>Review</th>
+                  <th>Customer Review</th>
                 </tr>
               </thead>
               <tbody>
@@ -195,7 +192,6 @@ function Table() {
                   <tr key={customer.id}>
                     <td className="fw-bold text-primary">{customer.id}</td>
                     <td className="fw-semibold">{customer.name}</td>
-                    <td style={{ maxWidth: '200px' }}>{customer.address}</td>
                     <td>
                       <span className="fw-semibold text-dark">{customer.device}</span>
                     </td>
@@ -204,16 +200,9 @@ function Table() {
                         {customer.warranty ? '✓ Yes' : '✗ No'}
                       </span>
                     </td>
-                    <td>
-                      <span className={`delivery-type ${customer.deliveryType === 'Pickup' ? 'delivery-pickup' : 'delivery-store'}`}>
-                        <i className={`fa-solid ${customer.deliveryType === 'Pickup' ? 'fa-truck' : 'fa-store'}`}></i>
-                        {customer.deliveryType}
-                      </span>
-                    </td>
                     <td style={{ maxWidth: '250px' }}>
                       <small>{customer.complaint}</small>
                     </td>
-                    <td>{getStatusBadge(customer.deliveryStatus)}</td>
                     <td style={{ maxWidth: '200px' }}>
                       {customer.review ? (
                         <span className="review-text">"{customer.review}"</span>

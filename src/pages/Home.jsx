@@ -23,42 +23,42 @@ function Home() {
       description: 'Are broken displays breaking your heart? We handle all types of software issues or anything related to smartphones.',
       image: 'https://i.pinimg.com/736x/d1/ca/56/d1ca56b2c7f85447ea4f799d8440c67a.jpg',
       link: '/device/smartphone',
-      color: '#4a90e2'
+      color: '#e95420'
     },
     {
       title: 'iPhone',
       description: 'Is your iPhone out of warranty? We can fix it with professional care. Get the right service for your iPhones with ChipFix.',
       image: 'https://i.pinimg.com/736x/4a/a4/65/4aa46588f62cebe1bb553dca698b8994.jpg',
       link: '/device/iphone',
-      color: '#50c878'
+      color: '#e95420'
     },
     {
       title: 'Laptop',
       description: 'Are you seeking the best laptop service providers? Your search has come to an end. ChipFix is a complete solution for all of your laptop needs.',
       image: 'https://i.pinimg.com/1200x/cb/e5/c5/cbe5c54a8e6767befe026713a763926f.jpg',
       link: '/laptop-repair',
-      color: '#ff6b6b'
+      color: '#e95420'
     },
     {
       title: 'Tablets',
       description: 'Are you facing charging problems on your tab, is your sim/memory slot broken, or is the touchscreen giving you a hard time? ChipFix will take care of all your tablet issues in no time.',
       image: 'https://i.pinimg.com/736x/a2/45/ea/a245eaaaefe8948aabc5bb7f607f7003.jpg',
       link: '/device/tablets',
-      color: '#ffd93d'
+      color: '#e95420'
     },
     {
       title: 'Smartwatch',
       description: "Broken smartwatch? Don't worry about that anymore! We got this done with ease at ChipFix.",
       image: 'https://i.pinimg.com/1200x/eb/04/64/eb0464574642e33d7081aa982b849b75.jpg',
       link: '/device/smartwatch',
-      color: '#a569bd'
+      color: '#e95420'
     },
     {
       title: 'Gaming Console',
       description: 'Playstation on strike? We got you covered. ChipFix has the best of PlayStation services to bring your dead gaming consoles back to life.',
       image: 'https://i.pinimg.com/736x/71/b1/86/71b186cc2e0825a62714de7626e3235d.jpg',
       link: '/device/gaming-console',
-      color: '#f39c12'
+      color: '#e95420'
     }
   ];
 
@@ -86,7 +86,7 @@ function Home() {
           }}
         >
           <div className='text-white fw-bold'>
-            Expert repairs for smartphones, tablets, laptops & mor
+            Expert repairs for smartphones, tablets, laptops & more
           </div>
           <div className="d-flex gap-3">
             <Link to={'/adminlogin'}>
@@ -97,9 +97,9 @@ function Home() {
         </div>
 
 
-        <Container className="text-center py-5 text-white" style={{ flex: 1 }}>
-          <h1 className="text-black ">Welcome to ChipFix Support</h1>
-          <h3 className="mb-4 fw-bold text-black ">Solution For Your Search</h3>
+        <Container className="text-center py-5 text-white" style={{ flex: 1, color:'#772953',  }}>
+          <h1 style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)' }}>Welcome to ChipFix Support</h1>
+          <h3 className="mb-4 fw-bold" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)' }}>Solution For Your Search</h3>
 
 
 
@@ -163,11 +163,11 @@ function Home() {
                 </p>
                 <Link to='/laptop-repair' className="text-decoration-none d-flex justify-content-center ">
                   <Button
-                    variant="outline-light"
-                    className="w-50 mt-2 fw-bold border-2 btn-hover text-black"
+                    variant="outline-primary"
+                    className="w-50 mt-2 fw-bold border-2 btn-hover text-primary"
 
                   >
-                    Get Service <i className="fa-solid fa-arrow-right ms-2"></i>
+                    Get Service <i className="fa-solid fa-arrow-right ms-2 text-primary arrow-icon"></i>
                   </Button>
                 </Link>
               </div>
@@ -254,6 +254,9 @@ function Home() {
           background-color: var(--bs-primary) !important;
           color: white !important;
           border-color: var(--bs-primary) !important;
+        }
+        .btn-hover:hover .arrow-icon {
+          color: white !important;
         }
           .scrollbar-hidden::-webkit-scrollbar {
           display: none;

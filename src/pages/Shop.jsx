@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Pagination, Form, InputGroup, Toast } from 'react-bootstrap';
 import { ToastContainer } from 'react-bootstrap';
 import { useCart } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 function Shop() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -11,6 +12,7 @@ function Shop() {
   const productsPerPage = 8;
   
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const products = [
     {
@@ -233,9 +235,12 @@ function Shop() {
               <Card.Body className="d-flex flex-column">
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text><strong>Price:</strong> {product.price}</Card.Text>
-                <div className="mt-auto">
-                  <Button variant="primary" className="w-100" onClick={() => handleAddToCart(product)}>
-                    Add to Cart
+                <div className="mt-auto d-flex gap-2">
+                  <Button variant="primary" className="flex-grow-1" onClick={() => handleAddToCart(product)}>
+                    <i className="fa-solid fa-cart-plus me-1"></i> Add to Cart
+                  </Button>
+                  <Button variant="outline-primary" onClick={() => navigate('/cart')} title="Go to Cart">
+                    <i className="fa-solid fa-shopping-cart"></i>
                   </Button>
                 </div>
               </Card.Body>
