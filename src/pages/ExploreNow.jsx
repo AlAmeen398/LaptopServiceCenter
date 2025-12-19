@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Modal, Button, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -361,10 +362,7 @@ function LaptopServicePage() {
           transition: transform 0.6s ease;
         }
 
-        .location-card:hover::before {
-          transform: scale(1);
-        }
-
+        
         .location-card:hover {
           transform: translateY(-10px) scale(1.05);
           border-color: rgba(255, 255, 255, 0.5);
@@ -684,12 +682,9 @@ function LaptopServicePage() {
             <Col md={5} key={location.id}>
               <Card
                 className="location-card text-white h-100"
-                onMouseEnter={() => setHoveredLocation(index)}
-                onMouseLeave={() => setHoveredLocation(null)}
                 onClick={() => handleLocationClick(location)}
                 style={{
-                  cursor: 'pointer',
-                  transform: hoveredLocation === index ? 'translateY(-10px) scale(1.05)' : 'translateY(0) scale(1)'
+                  cursor: 'pointer'
                 }}
               >
                 <Card.Body className="p-4">
